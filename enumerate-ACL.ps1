@@ -1,11 +1,11 @@
 #Returns a CSV list of users and groups with permissions on a recursive folder search. Also lists inheritence.
 
-$OutFile = "C:\users\jra\documents\prc-permissions.csv"
+$OutFile = [environment]::getfolderpath("mydocuments") + "enum-ACL.csv"
 $Header = "Folder Path;IdentityReference;AccessControlType;IsInherited;InheritanceFlags;PropagationFlags"
 Del $OutFile
 Add-Content -Value $Header -Path $OutFile 
 
-$RootPath = "u:\hbhe\prc\"
+$RootPath = "u:\"
 
 $Folders = dir $RootPath -recurse | where {$_.psiscontainer -eq $true}
 
