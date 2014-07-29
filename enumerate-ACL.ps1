@@ -2,7 +2,10 @@
 
 $OutFile = [environment]::getfolderpath("mydocuments") + "\enum-ACL.csv"
 $Header = "Folder Path;IdentityReference;AccessControlType;IsInherited;InheritanceFlags;PropagationFlags"
-Del $OutFile
+if (Test-Path $OutFile) {
+	Remove-Item $OutFile
+}
+
 Add-Content -Value $Header -Path $OutFile 
 
 $RootPath = "u:\"
