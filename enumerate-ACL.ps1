@@ -8,7 +8,7 @@ if (Test-Path $OutFile) {
 
 Add-Content -Value $Header -Path $OutFile 
 
-$RootPath = "u:\"
+$RootPath = "U:\HBHE\PRC"
 
 $Folders = dir $RootPath -recurse | where {$_.psiscontainer -eq $true}
 
